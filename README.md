@@ -31,6 +31,13 @@ npm install
 npm start
 ```
 
+## 小红书宣传素材
+
+- [园丁桌宠发布海报](poster/gardener-launch/gardener-codex-pet-poster.png)
+- [待机状态气泡](poster/gardener-dialogues/01-idle-dialogues.png)
+- [任务进行中气泡](poster/gardener-dialogues/02-working-dialogues.png)
+- [任务完成气泡](poster/gardener-dialogues/03-complete-dialogues.png)
+
 ## 打包 macOS 版本
 
 ```bash
