@@ -1,0 +1,62 @@
+{
+  "name": "identity-v-gardener-desktop-pet",
+  "version": "1.1.0",
+  "description": "第五人格园丁同人桌宠",
+  "main": "src/main.cjs",
+  "author": "Fan project",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "electron .",
+    "check": "node --check src/main.cjs && node --check src/preload.cjs && node --check src/renderer.js && node --check src/codex-status.cjs && node --check scripts/test-interactions.cjs && node --check scripts/test-codex-status.cjs",
+    "test:status": "node scripts/test-codex-status.cjs && electron scripts/test-interactions.cjs",
+    "preview": "electron scripts/capture-preview.cjs",
+    "dist:mac": "electron-builder --mac dmg zip --arm64 --x64"
+  },
+  "devDependencies": {
+    "electron": "latest",
+    "electron-builder": "latest"
+  },
+  "build": {
+    "appId": "com.fanproject.identityv.gardenerpet",
+    "productName": "园丁桌宠",
+    "asar": true,
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "src/**/*",
+      "assets/**/*",
+      "package.json"
+    ],
+    "mac": {
+      "category": "public.app-category.entertainment",
+      "icon": "assets/icon.png",
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "artifactName": "Gardener-Desktop-Pet-${arch}.${ext}",
+      "identity": null
+    },
+    "dmg": {
+      "title": "园丁桌宠 ${version}",
+      "window": {
+        "width": 540,
+        "height": 380
+      },
+      "contents": [
+        {
+          "x": 150,
+          "y": 190,
+          "type": "file"
+        },
+        {
+          "x": 390,
+          "y": 190,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    }
+  }
+}

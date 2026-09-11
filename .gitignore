@@ -1,0 +1,5 @@
+node_modules/
+release/
+petdex/
+.DS_Store
+npm-debug.log*

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' blob:; style-src 'self' 'unsafe-inline'; script-src 'self'" />
+    <title>园丁桌宠</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main id="pet-app" class="pet-app compact">
+      <section id="speech" class="speech" aria-live="polite">
+        <span id="speech-text">花园需要耐心，任务也是。</span>
+      </section>
+
+      <section class="pet-stage" aria-label="园丁桌宠">
+        <canvas id="pet-canvas" width="1254" height="1254" aria-label="园丁"></canvas>
+        <div class="drag-handle" title="拖动园丁"></div>
+        <button id="talk-button" class="invisible-hit-area" aria-label="和园丁说话"></button>
+        <button id="menu-button" class="menu-button" aria-label="打开任务面板" title="任务面板">✿</button>
+      </section>
+
+      <section id="panel" class="panel" aria-hidden="true">
+        <div class="panel-title">
+          <div>
+            <strong>Codex 状态联动</strong>
+            <small id="status-label">待机中</small>
+          </div>
+          <button id="close-panel" class="icon-button" aria-label="收起">×</button>
+        </div>
+        <p class="sync-copy">园丁会自动读取本机 Codex 会话的状态事件，不读取对话正文。</p>
+        <div class="state-legend">
+          <span>待机</span><span>处理中</span><span>已完成</span>
+        </div>
+        <button id="quit-button" class="quit-button">退出桌宠</button>
+      </section>
+    </main>
+    <script src="renderer.js"></script>
+  </body>
+</html>
