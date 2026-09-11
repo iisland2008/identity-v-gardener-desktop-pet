@@ -14,7 +14,7 @@ case "$(uname -m)" in
 esac
 
 DOWNLOAD_URL="https://github.com/${REPO}/releases/latest/download/Gardener-Desktop-Pet-${RELEASE_ARCH}.zip"
-INSTALL_ROOT="${HOME}/Applications"
+INSTALL_ROOT="${GARDENER_INSTALL_ROOT:-${HOME}/Applications}"
 INSTALL_PATH="${INSTALL_ROOT}/${APP_NAME}"
 TEMP_ROOT="$(mktemp -d)"
 
@@ -38,5 +38,7 @@ ditto "${SOURCE_APP}" "${INSTALL_PATH}"
 xattr -dr com.apple.quarantine "${INSTALL_PATH}" 2>/dev/null || true
 
 echo "已安装到：${INSTALL_PATH}"
-open "${INSTALL_PATH}"
-echo "园丁桌宠已启动。"
+if [[ "${GARDENER_SKIP_OPEN:-0}" != "1" ]]; then
+  open "${INSTALL_PATH}"
+  echo "园丁桌宠已启动。"
+fi
