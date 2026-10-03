@@ -1,6 +1,6 @@
 {
   "name": "identity-v-gardener-desktop-pet",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "第五人格园丁同人桌宠",
   "main": "src/main.cjs",
   "author": "Fan project",
@@ -10,6 +10,7 @@
     "check": "node --check src/main.cjs && node --check src/preload.cjs && node --check src/renderer.js && node --check src/codex-status.cjs && node --check scripts/test-interactions.cjs && node --check scripts/test-codex-status.cjs",
     "test:status": "node scripts/test-codex-status.cjs && electron scripts/test-interactions.cjs",
     "preview": "electron scripts/capture-preview.cjs",
+    "dist:native": "bash scripts/build-native-mac.sh",
     "dist:mac": "electron-builder --mac dmg zip --arm64 --x64"
   },
   "devDependencies": {
